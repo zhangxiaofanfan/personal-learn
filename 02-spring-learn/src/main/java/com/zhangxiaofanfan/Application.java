@@ -1,20 +1,29 @@
 package com.zhangxiaofanfan;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.zhangxiaofanfan.pojo.Hello;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@SpringBootApplication
-@RestController
+/**
+ * spring 容器学习使用类
+ * 
+ * @date 2023-07-06 20:12:40
+ * @author zhangxiaofanfan
+ */
 public class Application {
+    private final ApplicationContext context;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        Application application = new Application();
+        application.sayHello();
     }
 
-    @GetMapping("/helloworld")
-    public String helloWorld() {
-        return "Hello World, Learn Spring!";
+    public Application() {
+        context = new ClassPathXmlApplicationContext("beans.xml");
+    }
+
+    public void sayHello() {
+        Hello hello = context.getBean("hello", Hello.class);
+        System.out.println(hello.hello());
     }
 }
