@@ -7,12 +7,13 @@ package com.zhangxiaofanfan.pojo;
  * @author zhangxiaofanfan
  */
 public class Hello {
-    /**
-     * 返回 hello 方法
-     * 
-     * @return  返回 hello, world 字符串
-     */
+    private String name;
+
     public String hello() {
-        return "hello, world";
+        return "hello world by " + name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

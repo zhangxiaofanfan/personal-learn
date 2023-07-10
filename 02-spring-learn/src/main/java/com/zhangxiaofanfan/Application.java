@@ -12,14 +12,38 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Application {
     private final ApplicationContext context;
+    private final ClassPathXmlApplicationContext parentContext;
+    private final ClassPathXmlApplicationContext childContext;
 
     public static void main(String[] args) {
         Application application = new Application();
-        application.sayHello();
+        // application.sayHello();
+        application.runTests();
     }
 
     public Application() {
         context = new ClassPathXmlApplicationContext("beans.xml");
+        parentContext = new ClassPathXmlApplicationContext("parent-beans.xml");
+        childContext = new ClassPathXmlApplicationContext(new String[] {"child-beans.xml"}, true, parentContext);
+        parentContext.setId("ParentContext");
+        childContext.setId("ChildContext");
+    }
+
+    public void runTests() {
+        testVisibility(parentContext, "parentHello");
+        testVisibility(childContext, "parentHello");
+        testVisibility(parentContext, "childHello");
+        testVisibility(childContext, "childHello");
+        testOverridden(parentContext, "hello");
+        testOverridden(childContext, "hello");
+    }
+
+    private void testVisibility(ApplicationContext context, String beanName) {
+        System.out.println(context.getId() + " can see " + beanName + ": " + context.containsBean(beanName));
+    }
+
+    private void testOverridden(ApplicationContext context, String beanName) {
+        System.out.println("sayHello from " + context.getId() + ": " + context.getBean(beanName, Hello.class).hello());
     }
 
     public void sayHello() {
