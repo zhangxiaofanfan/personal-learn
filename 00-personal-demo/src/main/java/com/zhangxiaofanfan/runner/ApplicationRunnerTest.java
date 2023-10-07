@@ -12,8 +12,8 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2023-09-18 14:58:57
  * @author zhangxiaofanfan
  */
-@Component
 @Slf4j
+@Component
 public class ApplicationRunnerTest implements ApplicationRunner {
 
     @Override

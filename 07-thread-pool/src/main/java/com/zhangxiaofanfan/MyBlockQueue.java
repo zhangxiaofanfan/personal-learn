@@ -11,7 +11,6 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author 张晓帆帆
  * @version 1.0
- * @projectName 05-my-framework
  * @date 2021-08-28 下午12:59
  * @description 自定义阻塞队列实现
  *      1. ReentrantLock定义的锁是自定义锁，与 synchronized 关键字不同：
@@ -28,11 +27,11 @@ public class MyBlockQueue<T> {
      * FULL_WAIT_SET: 当阻塞队列已满，并且有线程提供任务时，将线程存放在 FULL_WAIT_SET 中进行等待
      * log: 记录日志使用
      */
-    private Integer maxSize;
-    private Deque<T> deque = new ArrayDeque<T>();
-    private ReentrantLock lock = new ReentrantLock();
-    private Condition EMPTY_WAIT_SET = lock.newCondition();
-    private Condition FULL_WAIT_SET = lock.newCondition();
+    private final Integer maxSize;
+    private final Deque<T> deque = new ArrayDeque<>();
+    private final ReentrantLock lock = new ReentrantLock();
+    private final Condition EMPTY_WAIT_SET = lock.newCondition();
+    private final Condition FULL_WAIT_SET = lock.newCondition();
 
     public MyBlockQueue(Integer maxSize) {
         this.maxSize = maxSize;
@@ -51,7 +50,7 @@ public class MyBlockQueue<T> {
                     log.debug("任务已满");
                     FULL_WAIT_SET.await();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.error("exception message", e);
                 }
             }
             log.debug("存放任务成功");
@@ -75,7 +74,7 @@ public class MyBlockQueue<T> {
                     log.debug("队列已空, 无法获取任务");
                     EMPTY_WAIT_SET.await();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.error("exception message", e);
                 }
             }
             T first = this.deque.removeFirst();
@@ -105,7 +104,7 @@ public class MyBlockQueue<T> {
                 try {
                     timeout = FULL_WAIT_SET.awaitNanos(timeout);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.error("exception message", e);
                 }
             }
             log.debug("存放任务成功");
@@ -134,7 +133,7 @@ public class MyBlockQueue<T> {
                 try {
                     timeout = EMPTY_WAIT_SET.awaitNanos(timeout);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.error("exception message", e);
                 }
             }
             T first = this.deque.removeFirst();
