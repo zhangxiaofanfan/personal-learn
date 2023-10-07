@@ -15,30 +15,26 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.boot.version>2.7.13</spring.boot.version>
-    <spring.version>5.3.20</spring.version>
-    <spring.state.machine.version>3.2.0</spring.state.machine.version>
+<!--    <spring.boot.version>2.7.13</spring.boot.version>-->
+<!--    <spring.version>5.3.20</spring.version>-->
+<!--    <spring.state.machine.version>3.2.0</spring.state.machine.version>-->
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
-      <version>${spring.boot.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework.statemachine</groupId>
       <artifactId>spring-statemachine-core</artifactId>
-      <version>${spring.state.machine.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

@@ -26,9 +26,6 @@ public class Test {
         orderService.pay(2);
         orderService.deliver(2);
         orderService.receive(2);
-        orderService.pay(1);
-        orderService.deliver(1);
-        orderService.receive(1);
         System.out.println("全部订单状态: " + orderService.getOrders());
     }
 }

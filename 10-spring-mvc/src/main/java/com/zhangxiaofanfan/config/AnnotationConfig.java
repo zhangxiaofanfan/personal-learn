@@ -1,5 +1,7 @@
 package com.zhangxiaofanfan.config;
 
+import com.zhangxiaofanfan.controller.HelloServlet;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,13 +16,13 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("com.zhangxiaofanfan")
 public class AnnotationConfig {
 
-    // @Bean("/helloServlet")
-    // public HelloServlet helloServlet() {
-    //     return new HelloServlet();
-    // }
-    //
-    // @Bean
-    // public TestServlet testServlet() {
-    //     return new TestServlet();
-    // }
+     @Bean("/helloServlet")
+     public HelloServlet helloServlet() {
+         return new HelloServlet();
+     }
+
+//     @Bean
+//     public TestServlet testServlet() {
+//         return new TestServlet();
+//     }
 }

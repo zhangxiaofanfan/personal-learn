@@ -9,7 +9,6 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.zhangxiaofanfan</groupId>
   <artifactId>09-rpc-netty</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -24,10 +23,6 @@
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-all</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>cn.hutool</groupId>
-      <artifactId>hutool-all</artifactId>
     </dependency>
   </dependencies>
 

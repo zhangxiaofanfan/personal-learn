@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.3</version>
+    <version>2.7.16</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -22,11 +22,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>3.8.1</junit.version>
     <spring.boot.version>2.6.3</spring.boot.version>
-    <hutool.version>5.7.10</hutool.version>
-    <netty.version>4.1.67.Final</netty.version>
+    <hutool.version>5.8.16</hutool.version>
+    <netty.version>4.1.86.Final</netty.version>
     <servlet.version>3.1.0</servlet.version>
     <spring.version>5.2.9.RELEASE</spring.version>
     <aspectj.version>1.9.7</aspectj.version>
+<!--    <spring.boot.version>2.7.13</spring.boot.version>-->
+    <spring.version>5.3.20</spring.version>
+    <spring.state.machine.version>3.2.0</spring.state.machine.version>
   </properties>
 
   <modules>
@@ -47,12 +50,12 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>junit</groupId>-->
+<!--        <artifactId>junit</artifactId>-->
+<!--        <version>${junit.version}</version>-->
+<!--        <scope>test</scope>-->
+<!--      </dependency>-->
       <dependency>
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-all</artifactId>
@@ -63,20 +66,38 @@
         <artifactId>netty-all</artifactId>
         <version>${netty.version}</version>
       </dependency>
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>${servlet.version}</version>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>javax.servlet</groupId>-->
+<!--        <artifactId>javax.servlet-api</artifactId>-->
+<!--        <version>${servlet.version}</version>-->
+<!--      </dependency>-->
+<!--      <dependency>-->
+<!--        <groupId>org.springframework</groupId>-->
+<!--        <artifactId>spring-context</artifactId>-->
+<!--        <version>${spring.version}</version>-->
+<!--      </dependency>-->
+<!--      <dependency>-->
+<!--        <groupId>org.aspectj</groupId>-->
+<!--        <artifactId>aspectjrt</artifactId>-->
+<!--        <version>${aspectj.version}</version>-->
+<!--      </dependency>-->
+
+<!--      <dependency>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-starter</artifactId>-->
+<!--        <version>${spring.boot.version}</version>-->
+<!--      </dependency>-->
+
       <dependency>
         <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
+        <artifactId>spring-core</artifactId>
         <version>${spring.version}</version>
       </dependency>
+
       <dependency>
-        <groupId>org.aspectj</groupId>
-        <artifactId>aspectjrt</artifactId>
-        <version>${aspectj.version}</version>
+        <groupId>org.springframework.statemachine</groupId>
+        <artifactId>spring-statemachine-core</artifactId>
+        <version>${spring.state.machine.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -1,7 +1,6 @@
 package com.zhangxiaofanfan;
 
-import cn.hutool.log.Log;
-import cn.hutool.log.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -16,25 +15,25 @@ import java.util.concurrent.TimeUnit;
  * @date 2021-08-28 下午12:59
  * @description 线程池测试类
  */
+@Slf4j
 public class MainTest {
-    private static final Log LOG = LogFactory.get();
 
     public static void main(String[] args) {
         MyThreadPool pool = new MyThreadPool(5, 5, (queue, task) -> {});
         for (int i = 0; i < 10; i++) {
             int j = i;
             pool.execute(() -> {
-                LOG.debug("task begin.....{}", j);
+                log.debug("task begin.....{}", j);
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                LOG.debug("task end.....{}", j);
+                log.debug("task end.....{}", j);
             });
         }
         ExecutorService es = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<Runnable>(10),
+                new LinkedBlockingQueue<>(10),
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.DiscardPolicy());
     }

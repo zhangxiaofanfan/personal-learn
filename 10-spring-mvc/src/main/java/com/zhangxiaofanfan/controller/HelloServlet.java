@@ -16,7 +16,7 @@ import java.io.IOException;
  * @date 2021-08-29 下午3:07
  * @description TODO
  */
-@Component("/helloServlet")
+@Component("helloServlet")
 public class HelloServlet extends HttpServlet {
 
     @Override

@@ -1,11 +1,13 @@
 package com.zhangxiaofanfan;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.StateMachineContext;
 import org.springframework.statemachine.StateMachinePersist;
 import org.springframework.statemachine.config.EnableStateMachine;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
+//import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
 import org.springframework.statemachine.persist.DefaultStateMachinePersister;
@@ -19,6 +21,7 @@ import java.util.EnumSet;
  * @author zhangxiaofanfan
  * @date 2023-07-19 12:48:13
  */
+@Slf4j
 @Configuration
 @EnableStateMachine(name = "orderStatusMachine")
 public class OrderStateMachineConfig extends EnumStateMachineConfigurerAdapter<OrderStatus, OrderStatusChangeEvent> {
@@ -65,15 +68,16 @@ public class OrderStateMachineConfig extends EnumStateMachineConfigurerAdapter<O
      */
     @Bean
     public DefaultStateMachinePersister<OrderStatus, OrderStatusChangeEvent, Order> persist() {
-        return new DefaultStateMachinePersister<>(new StateMachinePersist<>() {
+        return new DefaultStateMachinePersister<>(new StateMachinePersist<OrderStatus, OrderStatusChangeEvent, Order>() {
             @Override
-            public void write(StateMachineContext<OrderStatus, OrderStatusChangeEvent> stateMachineContext, Order order) throws Exception {
-
+            public void write(StateMachineContext<OrderStatus, OrderStatusChangeEvent> context, Order contextObj) throws Exception {
+                log.info("write running......");
             }
 
             @Override
-            public StateMachineContext<OrderStatus, OrderStatusChangeEvent> read(Order order) throws Exception {
-                return new DefaultStateMachineContext<>(order.getStatus(), null, null, null);
+            public StateMachineContext<OrderStatus, OrderStatusChangeEvent> read(Order contextObj) throws Exception {
+                log.info("read running......");
+                return null;
             }
         });
     }
