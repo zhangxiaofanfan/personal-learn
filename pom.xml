@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.3</version>
+    <version>2.7.13</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -17,17 +17,22 @@
   <name>personal-learn</name>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>3.8.1</junit.version>
     <spring.boot.version>2.6.3</spring.boot.version>
+    <lombok.version>1.18.28</lombok.version>
+    <hutool.version>5.8.20</hutool.version>
   </properties>
 
   <modules>
-    <module>00-personal-demo</module>
     <module>01-design-mode</module>
     <module>02-spring-learn</module>
+    <module>03-es-learn</module>
+    <module>04-scheduled-exception</module>
+    <module>05-spring-state-machine</module>
+    <module>06-spring-map</module>
   </modules>
 
   <dependencyManagement>
@@ -37,6 +42,19 @@
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

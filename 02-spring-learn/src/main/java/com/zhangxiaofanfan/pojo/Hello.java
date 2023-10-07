@@ -9,6 +9,10 @@ package com.zhangxiaofanfan.pojo;
 public class Hello {
     private String name;
 
+    public Hello() {
+        System.out.println("Hello creating...");
+    }
+
     public String hello() {
         return "hello world by " + name;
     }
