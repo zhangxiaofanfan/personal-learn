@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>personal-learn</artifactId>
+    <groupId>com.zhangxiaofanfan</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zhangxiaofanfan</groupId>
+  <artifactId>09-rpc-netty</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>09-rpc-netty</name>
+
+  <description>
+    1. 使用 netty 搭建简易 rpc(remote procedure call) 框架
+    2. rpc-netty 只包含消费者(consumer)和服务提供方(provider), 不包含服务注册与服务发现
+  </description>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-all</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>
