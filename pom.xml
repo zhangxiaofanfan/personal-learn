@@ -27,7 +27,6 @@
     <servlet.version>3.1.0</servlet.version>
     <spring.version>5.2.9.RELEASE</spring.version>
     <aspectj.version>1.9.7</aspectj.version>
-<!--    <spring.boot.version>2.7.13</spring.boot.version>-->
     <spring.version>5.3.20</spring.version>
     <spring.state.machine.version>3.2.0</spring.state.machine.version>
   </properties>
@@ -46,16 +45,17 @@
     <module>10-spring-mvc</module>
     <module>11-distributed-transaction</module>
     <module>12-jvm-learn</module>
+    <module>13-crontab-learn</module>
   </modules>
 
   <dependencyManagement>
     <dependencies>
-<!--      <dependency>-->
-<!--        <groupId>junit</groupId>-->
-<!--        <artifactId>junit</artifactId>-->
-<!--        <version>${junit.version}</version>-->
-<!--        <scope>test</scope>-->
-<!--      </dependency>-->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
       <dependency>
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-all</artifactId>
@@ -66,39 +66,37 @@
         <artifactId>netty-all</artifactId>
         <version>${netty.version}</version>
       </dependency>
-<!--      <dependency>-->
-<!--        <groupId>javax.servlet</groupId>-->
-<!--        <artifactId>javax.servlet-api</artifactId>-->
-<!--        <version>${servlet.version}</version>-->
-<!--      </dependency>-->
-<!--      <dependency>-->
-<!--        <groupId>org.springframework</groupId>-->
-<!--        <artifactId>spring-context</artifactId>-->
-<!--        <version>${spring.version}</version>-->
-<!--      </dependency>-->
-<!--      <dependency>-->
-<!--        <groupId>org.aspectj</groupId>-->
-<!--        <artifactId>aspectjrt</artifactId>-->
-<!--        <version>${aspectj.version}</version>-->
-<!--      </dependency>-->
-
-<!--      <dependency>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-starter</artifactId>-->
-<!--        <version>${spring.boot.version}</version>-->
-<!--      </dependency>-->
-
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-core</artifactId>
         <version>${spring.version}</version>
       </dependency>
-
       <dependency>
         <groupId>org.springframework.statemachine</groupId>
         <artifactId>spring-statemachine-core</artifactId>
         <version>${spring.state.machine.version}</version>
       </dependency>
+      <!--      <dependency>-->
+      <!--        <groupId>javax.servlet</groupId>-->
+      <!--        <artifactId>javax.servlet-api</artifactId>-->
+      <!--        <version>${servlet.version}</version>-->
+      <!--      </dependency>-->
+      <!--      <dependency>-->
+      <!--        <groupId>org.springframework</groupId>-->
+      <!--        <artifactId>spring-context</artifactId>-->
+      <!--        <version>${spring.version}</version>-->
+      <!--      </dependency>-->
+      <!--      <dependency>-->
+      <!--        <groupId>org.aspectj</groupId>-->
+      <!--        <artifactId>aspectjrt</artifactId>-->
+      <!--        <version>${aspectj.version}</version>-->
+      <!--      </dependency>-->
+
+      <!--      <dependency>-->
+      <!--        <groupId>org.springframework.boot</groupId>-->
+      <!--        <artifactId>spring-boot-starter</artifactId>-->
+      <!--        <version>${spring.boot.version}</version>-->
+      <!--      </dependency>-->
     </dependencies>
   </dependencyManagement>
 </project>
