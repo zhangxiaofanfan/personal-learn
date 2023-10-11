@@ -17,8 +17,8 @@
   <name>personal-learn</name>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>3.8.1</junit.version>
     <spring.boot.version>2.6.3</spring.boot.version>
@@ -46,6 +46,7 @@
     <module>11-distributed-transaction</module>
     <module>12-jvm-learn</module>
     <module>13-crontab-learn</module>
+    <module>14-xxl-job-learn</module>
   </modules>
 
   <dependencyManagement>

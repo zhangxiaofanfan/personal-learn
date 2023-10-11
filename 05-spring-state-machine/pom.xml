@@ -12,8 +12,8 @@
   <artifactId>05-spring-state-machine</artifactId>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <!--    <spring.boot.version>2.7.13</spring.boot.version>-->
 <!--    <spring.version>5.3.20</spring.version>-->
