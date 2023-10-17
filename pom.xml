@@ -29,6 +29,7 @@
     <aspectj.version>1.9.7</aspectj.version>
     <spring.version>5.3.20</spring.version>
     <spring.state.machine.version>3.2.0</spring.state.machine.version>
+    <kafka.clients.version>2.6.3</kafka.clients.version>
   </properties>
 
   <modules>
@@ -47,6 +48,7 @@
     <module>12-jvm-learn</module>
     <module>13-crontab-learn</module>
     <module>14-xxl-job-learn</module>
+    <module>15-kafka-learn</module>
   </modules>
 
   <dependencyManagement>
@@ -77,27 +79,11 @@
         <artifactId>spring-statemachine-core</artifactId>
         <version>${spring.state.machine.version}</version>
       </dependency>
-      <!--      <dependency>-->
-      <!--        <groupId>javax.servlet</groupId>-->
-      <!--        <artifactId>javax.servlet-api</artifactId>-->
-      <!--        <version>${servlet.version}</version>-->
-      <!--      </dependency>-->
-      <!--      <dependency>-->
-      <!--        <groupId>org.springframework</groupId>-->
-      <!--        <artifactId>spring-context</artifactId>-->
-      <!--        <version>${spring.version}</version>-->
-      <!--      </dependency>-->
-      <!--      <dependency>-->
-      <!--        <groupId>org.aspectj</groupId>-->
-      <!--        <artifactId>aspectjrt</artifactId>-->
-      <!--        <version>${aspectj.version}</version>-->
-      <!--      </dependency>-->
-
-      <!--      <dependency>-->
-      <!--        <groupId>org.springframework.boot</groupId>-->
-      <!--        <artifactId>spring-boot-starter</artifactId>-->
-      <!--        <version>${spring.boot.version}</version>-->
-      <!--      </dependency>-->
+      <dependency>
+        <groupId>org.apache.kafka</groupId>
+        <artifactId>kafka-clients</artifactId>
+        <version>${kafka.clients.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 </project>
