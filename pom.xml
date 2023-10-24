@@ -30,6 +30,7 @@
     <spring.version>5.3.20</spring.version>
     <spring.state.machine.version>3.2.0</spring.state.machine.version>
     <kafka.clients.version>2.6.3</kafka.clients.version>
+    <commons.lang.version>3.9</commons.lang.version>
   </properties>
 
   <modules>
@@ -49,6 +50,7 @@
     <module>13-crontab-learn</module>
     <module>14-xxl-job-learn</module>
     <module>15-kafka-learn</module>
+    <module>16-insert-operation-record</module>
   </modules>
 
   <dependencyManagement>
@@ -83,6 +85,12 @@
         <groupId>org.apache.kafka</groupId>
         <artifactId>kafka-clients</artifactId>
         <version>${kafka.clients.version}</version>
+      </dependency>
+      <!-- commons-lang3 -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons.lang.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
