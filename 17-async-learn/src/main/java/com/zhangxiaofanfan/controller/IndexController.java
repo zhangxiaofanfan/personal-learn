@@ -1,5 +1,6 @@
 package com.zhangxiaofanfan.controller;
 
+import com.zhangxiaofanfan.constraint.CallBack;
 import com.zhangxiaofanfan.service.IndexService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,12 @@ public class IndexController {
     @Autowired
     private IndexService indexService;
 
+    private CallBack callBack = (obj, exception) -> {
+        if (obj instanceof String) {
+            log.info("call back running, input param is {}", obj);
+        }
+    };
+
     @GetMapping("index1")
     public String index1() {
         Future<String> stringFuture = indexService.index1();
@@ -39,5 +46,11 @@ public class IndexController {
     @GetMapping("index2")
     public String index2() {
         return indexService.index2();
+    }
+
+    @GetMapping("index3")
+    public String index3() {
+        indexService.index3(callBack);
+        return "index3";
     }
 }

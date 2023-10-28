@@ -1,5 +1,7 @@
 package com.zhangxiaofanfan.service;
 
+import com.zhangxiaofanfan.constraint.CallBack;
+
 import java.util.concurrent.Future;
 
 /**
@@ -12,4 +14,6 @@ public interface IndexService {
     Future<String> index1();
 
     String index2();
+
+    Future<String> index3(CallBack callBack);
 }
