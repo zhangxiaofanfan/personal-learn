@@ -51,6 +51,7 @@
     <module>14-xxl-job-learn</module>
     <module>15-kafka-learn</module>
     <module>16-insert-operation-record</module>
+    <module>17-async-learn/async-learn</module>
   </modules>
 
   <dependencyManagement>
