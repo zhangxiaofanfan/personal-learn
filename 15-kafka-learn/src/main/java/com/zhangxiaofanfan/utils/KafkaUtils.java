@@ -1,5 +1,6 @@
 package com.zhangxiaofanfan.utils;
 
+import com.zhangxiaofanfan.interceptor.ProducerInterceptorPrefix;
 import com.zhangxiaofanfan.serializer.CompanyDeserializer;
 import com.zhangxiaofanfan.serializer.CompanySerializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -44,6 +45,21 @@ public class KafkaUtils {
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, CompanySerializer.class.getName());
+        return properties;
+    }
+
+    /**
+     * 消息队列生产者使用的配置对象, 向消息队列发送 Company 对象
+     *
+     * @return 配置对象
+     */
+    public static Properties getInterceptorProducerProperties() {
+        // 配置需要连接的 kafka 节点信息
+        Properties properties = new Properties();
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
+        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, ProducerInterceptorPrefix.class.getName());
         return properties;
     }
 
