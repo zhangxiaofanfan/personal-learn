@@ -36,3 +36,33 @@ public class ThreadShareSynchronized {
         log.info("count is {}", count);
     }
 }
+
+/**
+ * 使用面向对象的思想将自增和子健操作
+ */
+class Room {
+    private int counter = 0;
+
+    /**
+     * 线程安全的自增函数
+     */
+    public synchronized void increment() {
+        counter++;
+    }
+
+    /**
+     * 线程安全的自减函数
+     */
+    public synchronized void decrement() {
+        counter--;
+    }
+
+    /**
+     * 线程安全的获取计数器大小
+     *
+     * @return  返回计数器
+     */
+    public synchronized int getCounter() {
+        return counter;
+    }
+}
