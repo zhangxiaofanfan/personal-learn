@@ -1,12 +1,13 @@
 package com.zhangxiaofanfan.exercise;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 习题1: 多线程模拟多人来售票窗口买票的场景
@@ -15,24 +16,22 @@ import java.util.concurrent.TimeUnit;
  * @date 2023-12-21 00:11:44
  */
 @Slf4j
-public class Transfer {
+public class ExerciseTicket {
     static Random random = new Random();
 
     public static void main(String[] args) throws InterruptedException {
+        for (int i = 0; i < 10; i++) {
+            sellTicket();
+        }
+    }
+
+    private static void sellTicket() throws InterruptedException {
         List<Thread> threadList = new ArrayList<>();
         List<Integer> amountList = new Vector<>();
-        TickerWindow window = new TickerWindow(1000);
+        TicketWindow window = new TicketWindow(1000);
         // 模拟 2000 人来买票的场景
         for (int i = 0; i < 2000; i++) {
-            Thread thread = new Thread(() -> {
-                int sell = window.sell(randomAmount());
-                try {
-                    TimeUnit.MILLISECONDS.sleep(randomAmount());
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                amountList.add(sell);
-            });
+            Thread thread = new Thread(() -> amountList.add(window.sell(randomAmount())));
             threadList.add(thread);
             thread.start();
         }
@@ -40,8 +39,7 @@ public class Transfer {
         for (Thread thread : threadList) {
             thread.join();
         }
-        log.info("余票还有: {}", window.getCount());
-        log.info("售出票数: {}", amountList.stream().mapToInt(Integer::valueOf).sum());
+        log.info("余票还有: {}, 售出票数: {}", window.getCount(), amountList.stream().mapToInt(Integer::valueOf).sum());
     }
 
     /**
@@ -57,21 +55,10 @@ public class Transfer {
 /**
  * 售票窗口类
  */
-class TickerWindow {
+@Getter
+@AllArgsConstructor
+class TicketWindow {
     private int count;
-
-    public TickerWindow(int count) {
-        this.count = count;
-    }
-
-    /**
-     * 获取余票数量
-     *
-     * @return 余票数量
-     */
-    public int getCount() {
-        return count;
-    }
 
     /**
      * 售票方法
@@ -79,7 +66,7 @@ class TickerWindow {
      * @param amount    用户想要购买的票数
      * @return          用户真正买到的票数量
      */
-    public int sell(int amount) {
+    public synchronized int sell(int amount) {
         if (this.count >= amount) {
             this.count -= amount;
             return amount;
