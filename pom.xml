@@ -31,6 +31,7 @@
     <spring.state.machine.version>3.2.0</spring.state.machine.version>
     <kafka.clients.version>2.6.3</kafka.clients.version>
     <commons.lang.version>3.9</commons.lang.version>
+    <jol.core.version>0.16</jol.core.version>
   </properties>
 
   <modules>
@@ -92,6 +93,13 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <version>${commons.lang.version}</version>
+      </dependency>
+
+      <!-- 分析 java 对象使用的工具依赖 -->
+      <dependency>
+        <groupId>org.openjdk.jol</groupId>
+        <artifactId>jol-core</artifactId>
+        <version>${jol.core.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
