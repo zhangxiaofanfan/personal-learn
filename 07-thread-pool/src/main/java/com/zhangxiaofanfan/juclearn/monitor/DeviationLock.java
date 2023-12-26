@@ -14,17 +14,9 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class DeviationLock {
     public static void main(String[] args) throws InterruptedException {
-//        log.info("class info is {}", ClassLayout.parseClass(User.class).toPrintable());
-//        log.info("instance info is {}", ClassLayout.parseInstance(new User()).toPrintable());
-//        TimeUnit.SECONDS.sleep(5);
-//        log.info("instance info is {}", ClassLayout.parseInstance(new User()).toPrintable());
-        User user = new User();
-        log.info("instance info is {}", ClassLayout.parseInstance(user).toPrintable());
-        synchronized (user) {
-            log.info("instance info is {}", ClassLayout.parseInstance(user).toPrintable());
-        }
-        log.info("instance info is {}", ClassLayout.parseInstance(user).toPrintable());
-
+        log.info("instance info is {}", ClassLayout.parseInstance(new User()).toPrintable());
+        TimeUnit.SECONDS.sleep(5);
+        log.info("instance info is {}", ClassLayout.parseInstance(new User()).toPrintable());
     }
     static final Object obj = new Object();
     public static void method1() {
