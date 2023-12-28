@@ -1,4 +1,4 @@
-package com.zhangxiaofanfan.juclearn;
+package com.zhangxiaofanfan.juclearn.designpatterns;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -54,7 +54,7 @@ class MonitorClass {
     }
 
     /**
-     * stop 方法通过中断的方式对监控类实行优雅的打断操作
+     * stop 方法通过中断的方式对监控类实行优雅打断的操作
      */
     public void stop() {
         monitor.interrupt();
