@@ -6,7 +6,8 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.16</version>
+    <version>3.2.4</version>
+    <relativePath/>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -17,10 +18,10 @@
   <name>personal-learn</name>
 
   <properties>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
+    <java.version>21</java.version>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>3.8.1</junit.version>
     <spring.boot.version>2.6.3</spring.boot.version>
     <hutool.version>5.8.16</hutool.version>
     <netty.version>4.1.86.Final</netty.version>
@@ -32,37 +33,45 @@
     <kafka.clients.version>2.6.3</kafka.clients.version>
     <commons.lang.version>3.9</commons.lang.version>
     <jol.core.version>0.16</jol.core.version>
+    <spring.boot.admin.version>2.7.14</spring.boot.admin.version>
+    <dubbo.version>3.0.7</dubbo.version>
+    <guava.version>31.0.1-jre</guava.version>
+    <mybatis.plus.version>3.5.3.2</mybatis.plus.version>
+    <druid.version>1.2.20</druid.version>
+    <fastjson.version>2.0.41</fastjson.version>
+<!--    <lombok.version>1.8.30</lombok.version>-->
   </properties>
 
   <modules>
     <module>00-personal-demo</module>
-    <module>01-design-mode</module>
-    <module>02-spring-learn</module>
-    <module>03-es-learn</module>
-    <module>04-scheduled-exception</module>
-    <module>05-spring-state-machine</module>
-    <module>06-spring-map</module>
-    <module>07-thread-pool</module>
-    <module>08-spring-framework</module>
-    <module>09-rpc-netty</module>
-    <module>10-spring-mvc</module>
-    <module>11-distributed-transaction</module>
-    <module>12-jvm-learn</module>
-    <module>13-crontab-learn</module>
-    <module>14-xxl-job-learn</module>
-    <module>15-kafka-learn</module>
-    <module>16-insert-operation-record</module>
-    <module>17-async-learn</module>
+    <!--    <module>01-design-mode</module>-->
+<!--    <module>02-spring-learn</module>-->
+<!--    <module>03-es-learn</module>-->
+<!--    <module>04-scheduled-exception</module>-->
+<!--    <module>05-spring-state-machine</module>-->
+<!--    <module>06-spring-map</module>-->
+<!--    <module>07-thread-pool</module>-->
+<!--    <module>08-spring-framework</module>-->
+<!--    <module>09-rpc-netty</module>-->
+<!--    <module>10-spring-mvc</module>-->
+<!--    <module>11-distributed-transaction</module>-->
+<!--    <module>12-jvm-learn</module>-->
+<!--    <module>13-crontab-learn</module>-->
+<!--    <module>14-xxl-job-learn</module>-->
+<!--    <module>15-kafka-learn</module>-->
+<!--    <module>16-insert-operation-record</module>-->
+<!--    <module>17-async-learn</module>-->
+<!--    <module>18-spring-boot-admin-learn</module>-->
+<!--    <module>19-dubbo-learn</module>-->
+<!--    <module>20-limiter-learn</module>-->
+<!--    <module>21-spring-boot-cloud-learn</module>-->
+<!--    <module>22-springboot-learn</module>-->
+<!--    <module>24-oauth2-learn</module>-->
+    <!--    <module>23-spring-cloud-learn</module>-->
   </modules>
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
       <dependency>
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-all</artifactId>
@@ -73,11 +82,11 @@
         <artifactId>netty-all</artifactId>
         <version>${netty.version}</version>
       </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-core</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.springframework</groupId>-->
+<!--        <artifactId>spring-core</artifactId>-->
+<!--        <version>${spring.version}</version>-->
+<!--      </dependency>-->
       <dependency>
         <groupId>org.springframework.statemachine</groupId>
         <artifactId>spring-statemachine-core</artifactId>
@@ -101,6 +110,60 @@
         <artifactId>jol-core</artifactId>
         <version>${jol.core.version}</version>
       </dependency>
+
+<!--      <dependency>-->
+<!--        <groupId>org.projectlombok</groupId>-->
+<!--        <artifactId>lombok</artifactId>-->
+<!--        <version>${lombok.version}</version>-->
+<!--        <scope>provided</scope>-->
+<!--      </dependency>-->
+
+      <!-- springboot 应用监控相关依赖 -->
+      <dependency>
+        <groupId>de.codecentric</groupId>
+        <artifactId>spring-boot-admin-starter-server</artifactId>
+        <version>${spring.boot.admin.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.codecentric</groupId>
+        <artifactId>spring-boot-admin-starter-client</artifactId>
+        <version>${spring.boot.admin.version}</version>
+      </dependency>
+      <!-- dubbo 相关 -->
+      <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-spring-boot-starter</artifactId>
+        <version>${dubbo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-dependencies-zookeeper-curator5</artifactId>
+        <version>${dubbo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+
+      <!-- datasource -->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis.plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+      <!-- fastjson -->
+      <dependency>
+        <groupId>com.alibaba.fastjson2</groupId>
+        <artifactId>fastjson2</artifactId>
+        <version>${fastjson.version}</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 </project>

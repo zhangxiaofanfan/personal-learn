@@ -4,6 +4,7 @@ import cn.hutool.json.JSONObject;
 import com.zhangxiaofanfan.aop.OperationRecord;
 import com.zhangxiaofanfan.enums.OperationEntryEnum;
 import com.zhangxiaofanfan.enums.OperationEnum;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -17,7 +18,6 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * OperationRecord 注解的操作实现

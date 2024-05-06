@@ -1,0 +1,28 @@
+# 服务端口号
+server:
+  port: 8004
+
+spring:
+  active: dev # 默认开启 dev 场景
+
+  application:
+    name: zxff-skywalking-finance-service
+
+  cloud:
+    # nacos 注册中心配置
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        namespace: dev # 命名空间。这里使用 dev 开发环境
+
+  kafka:
+    bootstrap-servers: 10.24.20.101:8092
+    consumer:
+      group-id: SW-ORDER-SERVICE
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+# 日志文件配置
+logging:
+  config: classpath:config/logback-spring.xml

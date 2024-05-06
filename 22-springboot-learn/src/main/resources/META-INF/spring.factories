@@ -1,0 +1,3 @@
+com.zhangxiaofanfan.springboot.learn.bean.spi.DemoDao=\
+    com.zhangxiaofanfan.springboot.learn.bean.spi.DemoMySQLDaoImpl,\
+    com.zhangxiaofanfan.springboot.learn.bean.spi.DemoOracleDapImpl

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zhangxiaofanfan.cloud</groupId>
+    <artifactId>zxff-module-sso</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>zxff-module-sso-biz</artifactId>
+  <description>
+    sso 单点登录实现服务模块
+  </description>
+
+  <dependencies>
+    <!--开启Spring Cloud 应用程序启动时加载bootstrap配置文件-->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bootstrap</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-common</artifactId>
+    </dependency>
+
+    <!-- 依赖服务: RPC-API -->
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-module-sso-api</artifactId>
+    </dependency>
+
+    <!-- 自定义starter: 功能基础模块 -->
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-mybatis</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- 服务发现使用 -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+
+    <!-- 配置管理 -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+    </dependency>
+
+    <!-- 日志相关 -->
+    <dependency>
+      <groupId>org.apache.skywalking</groupId>
+      <artifactId>apm-toolkit-logback-1.x</artifactId>
+    </dependency>
+
+    <!-- 项目测试使用 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>

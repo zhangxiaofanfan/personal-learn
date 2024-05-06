@@ -1,0 +1,2 @@
+com.zhangxiaofanfan.cloud.framework.redis.config.ZxffCacheAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.redis.config.ZxffRedisAutoConfiguration

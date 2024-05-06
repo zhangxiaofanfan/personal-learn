@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+  <logger name="org.springframework" level="WARN"/>
+  <logger name="org.mybatis.spring" level="WARN"/>
+  <logger name="org.hibernate" level="WARN"/>
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>
+        [%date] [%thread] [%-5level] [%logger{80}][%line] - [%msg]%n
+      </pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>DEBUG</level>
+    </filter>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>logs/springboot-admin-client.log</File>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>logs/springboot-admin-client.%d{yyyyMMdd}.log</FileNamePattern>
+      <maxHistory>5</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <charset>UTF-8</charset>
+      <pattern>[%date] [%thread] [%-5level] [%logger{80}][%line] - [%msg]%n</pattern>
+    </encoder>
+  </appender>
+
+  <!--指定最基础的日志输出级别-->
+  <root level="info">
+    <appender-ref ref="console"/>
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>

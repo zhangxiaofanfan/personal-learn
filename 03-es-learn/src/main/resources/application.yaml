@@ -1,0 +1,7 @@
+server:
+  port: 8016
+
+spring:
+  elasticsearch:
+    rest:
+      uris: http://localhost:9200

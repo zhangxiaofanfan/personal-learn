@@ -1,0 +1,3 @@
+com.zhangxiaofanfan.cloud.framework.idempotent.config.ZxffIdempotentConfiguration
+com.zhangxiaofanfan.cloud.framework.lock4j.config.ZxffLock4jConfiguration
+com.zhangxiaofanfan.cloud.framework.ratelimiter.config.ZxffRateLimiterConfiguration

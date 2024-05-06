@@ -1,0 +1,10 @@
+server:
+  port: 9090
+dubbo:
+  application:
+    name: dubbo-springboot-demo-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: zookeeper://10.138.44.107:8001

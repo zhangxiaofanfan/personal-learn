@@ -1,0 +1,4 @@
+com.zhangxiaofanfan.cloud.framework.mq.rabbitmq.config.ZxffRabbitMQAutoConfiguration
+
+com.zhangxiaofanfan.cloud.framework.mq.redis.config.ZxffRedisMQProducerAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.mq.redis.config.ZxffRedisMQConsumerAutoConfiguration

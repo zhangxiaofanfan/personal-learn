@@ -2,15 +2,15 @@ package com.zhangxiaofanfan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
- * 模拟定时任务异常被吞的现场
+ * 异步任务异常没有正常返回造成进度丢失异常
  *
  * @date 2023-07-18 03:29:20
  * @author zhangxiaofanfan
  */
-@EnableScheduling
+@EnableAsync
 @SpringBootApplication
 public class Main {
     public static void main(String[] args) {

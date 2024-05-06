@@ -4,48 +4,54 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>personal-learn</artifactId>
-    <groupId>com.zhangxiaofanfan</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
 
   <artifactId>00-personal-demo</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <groupId>com.zhangxiaofanfan.cloud</groupId>
+  <version>${revision}</version>
+  <packaging>pom</packaging>
 
   <name>00-personal-demo</name>
+  <description>
+    这是学习 yudao-cloud 使用的顶层项目;
+    一步步搭建完整的 cloud 项目;
+    开始时间: 2024.04.14 10:05:00
+    结束时间: TODO
+  </description>
+
+  <modules>
+    <module>zxff-gateway</module>
+    <module>zxff-dependencies</module>
+    <module>zxff-framework</module>
+    <module>zxff-module-system</module>
+    <module>zxff-module-infra</module>
+    <module>zxff-module-sso</module>
+    <module>zxff-demo-skywalking</module>
+  </modules>
 
   <properties>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <revision>1.0-SNAPSHOT</revision>
+    <java.version>21</java.version>
+    <coding.scheme>UTF-8</coding.scheme>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>${coding.scheme}</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${coding.scheme}</project.reporting.outputEncoding>
+
+    <!-- 暂时没有办法保存在 BOM 中的属性 -->
+    <spring.boot.version>3.2.4</spring.boot.version>
   </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+  <!-- 父端项目控制顶层依赖 -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.zhangxiaofanfan.cloud</groupId>
+        <artifactId>zxff-dependencies</artifactId>
+        <version>${revision}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 </project>

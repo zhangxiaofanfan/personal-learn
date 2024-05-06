@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      # server-addr: localhost:8848
+      config:
+        file-extension: yaml
+#      namespace: 27b2b0ce-d83e-40b3-a066-9adafbc50619
+      discovery:
+        server-addr: 127.0.0.1:8848 # nacos服务地址
+        # cluster-name: BD  # 集群名称
+#        namespace: 27b2b0ce-d83e-40b3-a066-9adafbc50619 # 命名空间

@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class ThreadTwoPhaseTermination {
     public static void main(String[] args) throws InterruptedException {
-        MonitorClass monitor = new MonitorClass();
+        MonitorVolatileClass monitor = new MonitorVolatileClass();
         monitor.start();
 
         // 模拟进程运行5秒之后关系系统
@@ -57,6 +57,46 @@ class MonitorClass {
      * stop 方法通过中断的方式对监控类实行优雅打断的操作
      */
     public void stop() {
+        monitor.interrupt();
+    }
+}
+
+
+/**
+ * 监控类监控系统系统数据, stop操作关闭监控进程
+ */
+@Slf4j
+class MonitorVolatileClass {
+    Thread monitor;
+    private volatile Boolean exit = false;
+
+    public void start() {
+        Runnable monitorTask = () -> {
+            while (true) {
+                if (exit) {
+                    log.info("线程被打断, 关闭资源流");
+                    break;
+                }
+                log.info("模拟监控操作收集数据");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    log.error("当前线程被打断");
+                    // 休眠被打断中断标志位为false, 需要在运行状态调用 Interrupt 方法
+                    exit = true;
+                }
+            }
+            log.info("监控任务结束");
+        };
+        monitor = new Thread(monitorTask, "monitor");
+        monitor.start();
+    }
+
+    /**
+     * stop 方法通过中断的方式对监控类实行优雅打断的操作
+     */
+    public void stop() {
+        exit = true;
         monitor.interrupt();
     }
 }

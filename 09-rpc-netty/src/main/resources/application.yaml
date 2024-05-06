@@ -1,0 +1,16 @@
+# 服务端口
+server:
+  port: 8999
+
+# 日志配置
+logging:
+  level:
+    com.study.websocket: debug
+
+# 自定义的websocket配置
+websocket:
+  netty:
+    # netty服务器要使用的端口号
+    port: 19999
+    # WebSocket服务的接口地址
+    path: /websocket

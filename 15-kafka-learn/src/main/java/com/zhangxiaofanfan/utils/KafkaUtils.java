@@ -18,7 +18,7 @@ import java.util.Properties;
  */
 public class KafkaUtils {
     public static final String topic = "topic-demo";
-    public static final String brokerList = "localhost:8092";
+    public static final String brokerList = "10.24.20.101:8092";
 
     /**
      * 消息队列生产者使用的配置对象, 向消息队列发送 String 对象

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.0.2</version>
+    <relativePath />
+  </parent>
+
+  <groupId>com.zhangxiaofanfan</groupId>
+  <artifactId>spring-cloud-learn</artifactId>
+  <version>1.0.0-learn</version>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>user-service</module>
+    <module>order-service</module>
+    <module>commons</module>
+    <module>gateway</module>
+    <!--    <module>eureka-server</module>-->
+    <!--    <module>feign-api</module>-->
+  </modules>
+
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <spring-cloud.version>2022.0.0</spring-cloud.version>
+    <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
+
+    <mybatis.plus.version>3.5.3.2</mybatis.plus.version>
+    <mysql.version>8.0.30</mysql.version>
+    <druid.version>1.2.20</druid.version>
+    <loadbalancer.version>4.0.0</loadbalancer.version>
+    <open.feign.version>4.0.0</open.feign.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- spring cloud 引入 -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>${spring-cloud-alibaba.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- mysql 驱动 -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+      <!-- datasource -->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis.plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+<!--      &lt;!&ndash; 注入 openFeign 客户端 &ndash;&gt;-->
+<!--      <dependency>-->
+<!--        <groupId>org.springframework.cloud</groupId>-->
+<!--        <artifactId>spring-cloud-starter-openfeign</artifactId>-->
+<!--        <version>${open.feign.version}</version>-->
+<!--      </dependency>-->
+<!--      <dependency>-->
+<!--        <groupId>org.springframework.cloud</groupId>-->
+<!--        <artifactId>spring-cloud-starter-loadbalancer</artifactId>-->
+<!--        <version>${loadbalancer.version}</version>-->
+<!--      </dependency>-->
+    </dependencies>
+  </dependencyManagement>
+</project>

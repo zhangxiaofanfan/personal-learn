@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zhangxiaofanfan.cloud</groupId>
+    <artifactId>00-personal-demo</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>zxff-framework</artifactId>
+  <packaging>pom</packaging>
+
+  <modules>
+    <!-- 通用模块 -->
+    <module>zxff-common</module>
+
+    <!-- 业务基础模块 -->
+    <module>zxff-spring-boot-starter-biz-tenant</module>
+    <module>zxff-spring-boot-starter-biz-data-permission</module>
+    <module>zxff-spring-boot-starter-biz-ip</module>
+
+    <!-- 功能基础模块 -->
+    <module>zxff-spring-boot-starter-env</module>
+    <module>zxff-spring-boot-starter-mybatis</module>
+    <module>zxff-spring-boot-starter-redis</module>
+    <module>zxff-spring-boot-starter-web</module>
+    <module>zxff-spring-boot-starter-security</module>
+    <module>zxff-spring-boot-starter-websocket</module>
+    <module>zxff-spring-boot-starter-monitor</module>
+    <module>zxff-spring-boot-starter-protection</module>
+    <module>zxff-spring-boot-starter-job</module>
+    <module>zxff-spring-boot-starter-mq</module>
+    <module>zxff-spring-boot-starter-rpc</module>
+    <module>zxff-spring-boot-starter-excel</module>
+    <module>zxff-spring-boot-starter-test</module>
+    <module>zxff-spring-boot-starter-apidoc</module>
+    <module>zxff-spring-boot-starter-log</module>
+  </modules>
+
+</project>

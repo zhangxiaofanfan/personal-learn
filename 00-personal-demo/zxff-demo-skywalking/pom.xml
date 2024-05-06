@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zhangxiaofanfan.cloud</groupId>
+    <artifactId>00-personal-demo</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>zxff-demo-skywalking</artifactId>
+  <packaging>pom</packaging>
+
+  <description>
+    学习 SkyWalking 使用的 demo
+    模块(zxff-module-gateway):  后端服务网关模块;
+    模块(zxff-module-finance):  归档账单消费使用的模块;
+    模块(zxff-module-order):    订单服务;
+    模块(zxff-module-product):  产品服务;
+    模块(zxff-module-user):     用户服务;
+    模块(zxff-module-alert):    报警回调模块;
+
+    模块启动设置代理配置(VM Options):
+    -javaagent:{skywalking_path}/skywalking-agent.jar
+    -Dskywalking.agent.service_name={skywalking-name}
+    -Dskywalking.collector.backend_service=127.0.0.1:11800 (搭建的 OAP 服务地址)
+  </description>
+
+  <modules>
+    <module>zxff-module-gateway</module>
+    <module>zxff-module-finance</module>
+    <module>zxff-module-order</module>
+    <module>zxff-module-product</module>
+    <module>zxff-module-user</module>
+    <module>zxff-module-common</module>
+    <module>zxff-module-alert</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.zhangxiaofanfan.cloud</groupId>
+        <artifactId>zxff-module-common</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
+      <!-- feign api 服务 -->
+      <dependency>
+        <groupId>com.zhangxiaofanfan.cloud</groupId>
+        <artifactId>zxff-module-order-api</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.zhangxiaofanfan.cloud</groupId>
+        <artifactId>zxff-module-user-api</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.zhangxiaofanfan.cloud</groupId>
+        <artifactId>zxff-module-product-api</artifactId>
+        <version>${revision}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>

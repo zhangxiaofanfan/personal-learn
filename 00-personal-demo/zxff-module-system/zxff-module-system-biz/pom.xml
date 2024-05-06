@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zhangxiaofanfan.cloud</groupId>
+    <artifactId>zxff-module-system</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>zxff-module-system-biz</artifactId>
+
+  <dependencies>
+    <!-- Spring Cloud 基础 -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bootstrap</artifactId>
+    </dependency>
+
+    <!-- 自定义common 项目 -->
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-common</artifactId>
+    </dependency>
+
+    <!-- 自定义starter: 业务基础模块 -->
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-biz-tenant</artifactId>
+    </dependency>
+
+    <!-- 自定义starter: 功能基础模块 -->
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-rpc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-env</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-monitor</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-mybatis</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-redis</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-spring-boot-starter-excel</artifactId>
+    </dependency>
+
+    <!-- 依赖服务: RPC-API -->
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-module-system-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.zhangxiaofanfan.cloud</groupId>
+      <artifactId>zxff-module-infra-api</artifactId>
+    </dependency>
+
+    <!-- Registry 注册中心相关 -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+
+    <!-- Config 配置中心相关 -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+    </dependency>
+
+    <!-- 工具类相关 -->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-mail</artifactId>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>com.xingyuv</groupId>-->
+<!--      <artifactId>spring-boot-starter-captcha-plus</artifactId> &lt;!&ndash; 验证码，一般用于登录使用 &ndash;&gt;-->
+<!--    </dependency>-->
+
+    <!-- 三方云服务相关 -->
+<!--    <dependency>-->
+<!--      <groupId>com.xingyuv</groupId>-->
+<!--      <artifactId>spring-boot-starter-justauth</artifactId> &lt;!&ndash; 社交登陆（例如说，个人微信、企业微信等等） &ndash;&gt;-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>com.github.binarywang</groupId>-->
+<!--      <artifactId>wx-java-mp-spring-boot-starter</artifactId> &lt;!&ndash; 微信登录（公众号） &ndash;&gt;-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>com.aliyun</groupId>-->
+<!--      <artifactId>aliyun-java-sdk-core</artifactId> &lt;!&ndash; 短信（阿里云） &ndash;&gt;-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>com.aliyun</groupId>-->
+<!--      <artifactId>aliyun-java-sdk-dysmsapi</artifactId> &lt;!&ndash; 短信（阿里云） &ndash;&gt;-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>com.tencentcloudapi</groupId>-->
+<!--      <artifactId>tencentcloud-sdk-java-sms</artifactId> &lt;!&ndash; 短信（腾讯云） &ndash;&gt;-->
+<!--    </dependency>-->
+  </dependencies>
+
+  <build>
+    <!-- 设置构建的 jar 包名 -->
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <!-- 打包 -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.boot.version}</version> <!-- 如果 spring.boot.version 版本修改，则这里也要跟着修改 -->
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal> <!-- 将引入的 jar 打入其中 -->
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

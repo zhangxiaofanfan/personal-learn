@@ -1,0 +1,10 @@
+com.zhangxiaofanfan.cloud.framework.apilog.config.ZxffApiLogAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.jackson.config.ZxffJacksonAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.swagger.config.ZxffSwaggerAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.web.config.ZxffWebAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.apilog.config.ZxffApiLogRpcAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.banner.config.ZxffBannerAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.errorcode.config.ZxffErrorCodeAutoConfiguration
+com.zhangxiaofanfan.cloud.framework.errorcode.config.ZxffErrorCodeRpcAutoConfiguration
+
+com.zhangxiaofanfan.cloud.framework.xss.config.ZxffXssAutoConfiguration

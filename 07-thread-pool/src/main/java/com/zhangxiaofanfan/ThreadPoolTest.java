@@ -2,6 +2,9 @@ package com.zhangxiaofanfan;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
 /**
  * 多线程学习测试实用类
  *
@@ -10,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class ThreadPoolTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         new Thread(() -> {
             while (true) {
                 try {
@@ -22,5 +25,11 @@ public class ThreadPoolTest {
             }
         }, "thread-1").start();
         log.info("main线程执行并结束了");
+
+        FutureTask<String> futureTask = new FutureTask<>(() -> "hello");
+
+        Thread thread = new Thread(futureTask);
+        thread.start();
+        futureTask.get();
     }
 }
