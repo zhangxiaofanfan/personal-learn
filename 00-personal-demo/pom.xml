@@ -26,6 +26,7 @@
     <module>zxff-module-infra</module>
     <module>zxff-module-sso</module>
     <module>zxff-demo-skywalking</module>
+    <module>zxff-learn-reactor</module>
   </modules>
 
   <properties>
